@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Grind Media — Turn Attention Into Growth</title>
+<meta name="description" content="Daily Grind Media connects creative, campaigns, funnels, CRM, and follow-up into one system built to turn visibility into qualified opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&family=League+Spartan:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--card:#111111;--border:#1E1E1E;--border-mid:#2A2A2A;
+  --copper:#BB725A;--copper-light:#D4937D;--copper-dark:#8A4F3B;
+  --white:#F5F3F0;--muted:#777777;
+  --nav-h:66px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;
+  line-height:1.7;overflow-x:hidden;position:relative;-webkit-font-smoothing:antialiased;}
+
+/* ---------- Grain ---------- */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.04;mix-blend-mode:overlay;}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+section{padding:clamp(56px,9vw,120px) 0;position:relative;}
+
+h1,h2,h3,.bebas{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:0.02em;line-height:0.98;}
+
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.42em;font-size:clamp(0.62rem,1.3vw,0.74rem);color:var(--copper);
+  margin-bottom:clamp(18px,3vw,28px);display:flex;align-items:center;gap:14px;}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--copper);display:inline-block;flex:none;}
+.sec-num{font-family:'Barlow Condensed',sans-serif;font-weight:300;letter-spacing:0.4em;
+  color:var(--copper-dark);font-size:0.7rem;text-transform:uppercase;}
+h2.section-title{font-size:clamp(2.4rem,7vw,4.6rem);color:var(--white);
+  margin-bottom:clamp(28px,4vw,42px);text-transform:uppercase;}
+.lead{font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(1rem,2vw,1.18rem);color:#cfccc6;max-width:64ch;}
+p{font-weight:300;color:#bdbab4;}
+p strong{color:var(--white);font-weight:500;}
+.serif{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--copper-light);}
+
+/* ---------- Divider ---------- */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--copper-dark) 18%,var(--copper) 50%,var(--copper-dark) 82%,transparent);
+  border:none;margin:0 auto;width:100%;opacity:0.55;}
+.divider-block{padding:0;}
+.divider-block .wrap{padding-top:0;padding-bottom:0;}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ---------- Buttons ---------- */
+.btn{font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.12em;font-size:0.82rem;display:inline-flex;align-items:center;gap:10px;
+  padding:15px 30px;background:var(--copper);color:#0a0a0a;border:1px solid var(--copper);
+  cursor:pointer;transition:background .35s ease,transform .35s ease,box-shadow .35s ease;text-decoration:none;line-height:1;}
+.btn:hover{background:var(--copper-light);border-color:var(--copper-light);transform:translateY(-2px);
+  box-shadow:0 10px 30px -12px rgba(187,114,90,0.55);}
+.btn .arw{transition:transform .35s ease;}
+.btn:hover .arw{transform:translateX(4px);}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border-mid);}
+.btn-ghost:hover{background:transparent;border-color:var(--copper);color:var(--copper-light);box-shadow:none;}
+.btn-text{font-family:'Barlow Condensed',sans-serif;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.24em;font-size:0.78rem;color:var(--copper-light);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .35s ease,gap .35s ease;}
+.btn-text:hover{border-color:var(--copper);gap:12px;}
+
+/* ---------- Nav ---------- */
+header.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:900;
+  display:flex;align-items:center;
+  background:rgba(8,8,8,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .4s ease,background .4s ease;}
+header.nav.scrolled{border-bottom-color:var(--border);background:rgba(8,8,8,0.9);}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.lockup{display:flex;align-items:center;gap:12px;z-index:2;text-decoration:none;}
+.lockup-mark{display:flex;gap:3px;align-items:flex-end;height:22px;}
+.lockup-mark span{display:block;width:3px;background:var(--copper);border-radius:1px;animation:grind 2.2s ease-in-out infinite;}
+.lockup-mark span:nth-child(1){height:40%;animation-delay:0s;}
+.lockup-mark span:nth-child(2){height:75%;animation-delay:.2s;}
+.lockup-mark span:nth-child(3){height:55%;animation-delay:.4s;}
+.lockup-mark span:nth-child(4){height:100%;animation-delay:.6s;}
+@keyframes grind{0%,100%{transform:scaleY(1);opacity:0.85;}50%{transform:scaleY(0.45);opacity:1;}}
+.lockup-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.30em;font-size:0.78rem;color:var(--white);}
+.nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,38px);}
+.nav-links a.nlink{font-family:'Barlow Condensed',sans-serif;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.2em;font-size:0.74rem;color:#bdbab4;text-decoration:none;transition:color .3s ease;}
+.nav-links a.nlink:hover{color:var(--copper-light);}
+.nav-cta{padding:11px 22px;font-size:0.72rem;}
+@media(max-width:820px){.nav-links a.nlink{display:none;}}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding-top:calc(var(--nav-h) + clamp(30px,7vw,70px));padding-bottom:clamp(50px,9vw,90px);
+  position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;bottom:-10%;left:-5%;right:0;height:70%;
+  background:radial-gradient(ellipse at 25% 100%,rgba(187,114,90,0.13),transparent 62%);pointer-events:none;z-index:0;}
+.hero .wrap{position:relative;z-index:2;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:500;letter-spacing:0.4em;
+  text-transform:uppercase;color:var(--copper);font-size:clamp(0.7rem,1.6vw,0.84rem);
+  margin-bottom:clamp(22px,3vw,30px);display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:"";width:40px;height:1px;background:var(--copper);}
+.hero-title{font-size:clamp(3rem,10.5vw,7.6rem);text-transform:uppercase;color:var(--white);line-height:0.85;max-width:16ch;}
+.hero-title .row2{color:var(--copper);display:block;}
+.hero-sub{font-family:'Barlow',sans-serif;font-weight:300;color:#cfccc6;
+  font-size:clamp(1.05rem,2.2vw,1.35rem);margin-top:clamp(24px,3.4vw,34px);max-width:60ch;line-height:1.55;}
+.hero-support{font-family:'Barlow Condensed',sans-serif;font-weight:400;text-transform:uppercase;
+  letter-spacing:0.16em;font-size:clamp(0.74rem,1.5vw,0.9rem);color:var(--copper-light);
+  margin-top:clamp(12px,1.6vw,16px);max-width:60ch;line-height:1.5;}
+.hero-cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.4vw,28px);margin-top:clamp(32px,4.4vw,46px);}
+.hero-meta{display:flex;flex-wrap:wrap;gap:clamp(14px,3vw,36px);margin-top:clamp(34px,5vw,54px);
+  font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.74rem;color:var(--muted);}
+.hero-meta span{display:flex;align-items:center;gap:9px;}
+.hero-meta span::before{content:"";width:5px;height:5px;background:var(--copper);border-radius:50%;flex:none;}
+
+/* Hero media placeholder */
+.hero-media{margin-top:clamp(44px,6vw,72px);position:relative;aspect-ratio:16/8;width:100%;
+  border:1px solid var(--border);background:
+    linear-gradient(120deg,rgba(187,114,90,0.06),transparent 55%),
+    repeating-linear-gradient(-45deg,#0d0d0d 0 22px,#0f0f0f 22px 44px);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-media::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(187,114,90,0.10),transparent 60%);}
+.play{width:clamp(58px,7vw,80px);height:clamp(58px,7vw,80px);border-radius:50%;border:1px solid var(--copper);
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+  background:radial-gradient(circle at 50% 35%,rgba(187,114,90,0.2),rgba(8,8,8,0.5));transition:transform .4s ease;}
+.hero-media:hover .play{transform:scale(1.06);}
+.play svg{width:26px;height:26px;fill:var(--copper);margin-left:4px;}
+.media-tag{position:absolute;bottom:14px;left:16px;z-index:2;font-family:'Barlow Condensed',sans-serif;
+  text-transform:uppercase;letter-spacing:0.24em;font-size:0.6rem;color:var(--muted);
+  border:1px solid var(--border);padding:4px 10px;background:rgba(8,8,8,0.7);}
+
+/* ---------- Problem section ---------- */
+.prob-grid{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  border:1px solid var(--border);margin-top:clamp(10px,2vw,20px);}
+.prob{background:var(--card);padding:clamp(24px,3vw,34px);transition:background .4s ease;}
+.prob:hover{background:#151110;}
+.prob .pk{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.22em;
+  font-size:0.66rem;color:var(--copper);margin-bottom:14px;display:flex;align-items:center;gap:9px;}
+.prob .pk::before{content:"";width:16px;height:1px;background:var(--copper);}
+.prob p{font-size:0.98rem;color:#c5c2bc;line-height:1.5;}
+.prob p b{color:var(--white);font-weight:500;}
+.prob-land{margin-top:clamp(34px,4vw,50px);}
+
+/* ---------- Growth system flow ---------- */
+.flow{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:clamp(20px,3vw,34px);max-width:640px;margin-left:auto;margin-right:auto;}
+.flow-node{width:100%;border:1px solid var(--border);background:var(--card);
+  padding:clamp(18px,2.6vw,26px) clamp(22px,3vw,32px);display:flex;align-items:center;justify-content:space-between;gap:20px;
+  transition:border-color .5s ease,transform .5s ease,background .5s ease;position:relative;}
+.flow-node:hover{border-color:var(--copper-dark);transform:translateX(4px);background:#141010;}
+.flow-node .fn-l{display:flex;align-items:center;gap:clamp(16px,2.4vw,24px);}
+.flow-node .fn-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--copper-dark);line-height:0.8;min-width:34px;}
+.flow-node .fn-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);color:var(--white);text-transform:uppercase;line-height:0.85;}
+.flow-node .fn-desc{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.9rem;color:var(--muted);text-align:right;max-width:30ch;line-height:1.4;}
+.flow-node.final{border-color:var(--copper-dark);background:linear-gradient(120deg,rgba(187,114,90,0.12),transparent 62%);}
+.flow-node.final .fn-name{color:var(--copper);}
+.flow-arrow{width:1px;height:clamp(22px,3vw,34px);background:linear-gradient(180deg,var(--copper-dark),var(--copper-dark));position:relative;flex:none;}
+.flow-arrow::after{content:"";position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);
+  border-left:4px solid transparent;border-right:4px solid transparent;border-top:6px solid var(--copper-dark);}
+.flow-caption{margin-top:clamp(30px,4vw,46px);text-align:center;}
+.flow-caption .serif{font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.4;}
+@media(max-width:600px){
+  .flow-node{flex-direction:column;align-items:flex-start;gap:10px;}
+  .flow-node .fn-desc{text-align:left;}
+}
+
+/* ---------- What DGM builds (outcomes) ---------- */
+.out-grid{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(270px,1fr));margin-top:clamp(10px,2vw,20px);}
+.out{background:var(--card);border:1px solid var(--border);padding:clamp(28px,3.4vw,38px);
+  position:relative;overflow:hidden;transition:border-color .5s ease,transform .5s ease;}
+.out::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--copper),var(--copper-dark));}
+.out:hover{border-color:var(--border-mid);transform:translateY(-3px);}
+.out .o-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3rem);color:var(--copper-dark);line-height:0.8;display:block;margin-bottom:16px;}
+.out h3{font-size:clamp(1.6rem,3vw,2rem);color:var(--white);margin-bottom:10px;text-transform:uppercase;}
+.out .o-sub{font-family:'Barlow',sans-serif;font-weight:300;color:#c5c2bc;font-size:0.98rem;margin-bottom:20px;line-height:1.5;}
+.tick-list{list-style:none;}
+.tick-list li{font-size:0.86rem;color:#bdbab4;padding:8px 0 8px 16px;position:relative;border-top:1px solid var(--border);}
+.tick-list li:first-child{border-top:none;}
+.tick-list li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:1px;background:var(--copper);}
+.bridge{margin-top:clamp(28px,3.6vw,42px);border-left:2px solid var(--copper);
+  padding:clamp(20px,3vw,30px) clamp(22px,3.4vw,40px);background:linear-gradient(100deg,rgba(187,114,90,0.06),transparent 60%);}
+.bridge p{font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(1.05rem,2.1vw,1.3rem);color:#cfccc6;max-width:70ch;line-height:1.5;}
+.bridge p strong{color:var(--white);font-weight:500;}
+
+/* ---------- Why it matters (connection) ---------- */
+.disc-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:clamp(10px,2vw,20px);}
+.disc{background:var(--card);padding:clamp(20px,2.6vw,26px);transition:background .4s ease;}
+.disc:hover{background:#151110;}
+.disc .d-from{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3.4vw,2rem);color:var(--white);text-transform:uppercase;line-height:0.9;}
+.disc .d-x{display:inline-flex;align-items:center;gap:8px;margin-top:8px;color:var(--copper-dark);font-family:'Barlow Condensed',sans-serif;letter-spacing:0.2em;font-size:0.7rem;text-transform:uppercase;}
+.disc .d-x svg{width:14px;height:14px;stroke:var(--copper-dark);fill:none;stroke-width:1.6;}
+.disc-label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.28em;
+  font-size:0.68rem;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.disc-label::before{content:"";width:20px;height:1px;background:var(--copper-dark);}
+.contrast{margin-top:clamp(28px,4vw,42px);border:1px solid var(--copper-dark);
+  background:linear-gradient(120deg,rgba(187,114,90,0.10),transparent 60%);padding:clamp(30px,4.5vw,52px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;}
+.contrast .c-txt .serif{font-size:clamp(1.3rem,3vw,1.9rem);line-height:1.35;}
+.contrast .c-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--copper);text-transform:uppercase;line-height:0.9;}
+
+/* ---------- Proof / Case Study ---------- */
+.ph{border:1px dashed var(--border-mid);background:
+    repeating-linear-gradient(-45deg,#0c0c0c 0 20px,#0e0e0e 20px 40px);
+  min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  padding:24px;text-align:center;transition:border-color .4s ease;}
+.ph:hover{border-color:var(--copper-dark);}
+.ph .ph-ico{width:44px;height:44px;border-radius:11px;border:1px solid var(--copper-dark);
+  display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,rgba(187,114,90,0.16),rgba(8,8,8,0.4));}
+.ph .ph-ico svg{width:22px;height:22px;stroke:var(--copper);fill:none;stroke-width:1.5;}
+.ph .ph-label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.22em;font-size:0.68rem;color:var(--copper-light);}
+.ph .ph-note{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.18em;font-size:0.56rem;color:var(--muted);}
+
+/* sub-eyebrow used inside case study */
+.sub-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.32em;font-size:0.66rem;color:var(--copper);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.sub-eyebrow::before{content:"";width:26px;height:1px;background:var(--copper);flex:none;}
+
+/* Featured case-study shell */
+.cs{margin-top:clamp(30px,5vw,58px);border:1px solid var(--border);background:#0c0c0c;position:relative;overflow:hidden;}
+.cs::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--copper),var(--copper-dark) 60%,transparent);z-index:3;}
+
+/* Top: client anchor split */
+.cs-top{display:grid;grid-template-columns:0.92fr 1.08fr;}
+@media(max-width:840px){.cs-top{grid-template-columns:1fr;}}
+.cs-photo{position:relative;min-height:clamp(360px,52vw,560px);background:#111;overflow:hidden;}
+.cs-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;
+  filter:grayscale(0.15) contrast(1.02);}
+.cs-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(160deg,transparent 40%,rgba(8,8,8,0.55)),linear-gradient(90deg,transparent 70%,rgba(8,8,8,0.5));pointer-events:none;}
+.cs-photo .cs-badge{position:absolute;left:0;bottom:0;z-index:2;padding:clamp(18px,2.6vw,26px);}
+.cs-photo .cs-badge .cb-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--white);text-transform:uppercase;line-height:0.9;}
+.cs-photo .cs-badge .cb-meta{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.24em;font-size:0.62rem;color:var(--copper-light);margin-top:6px;}
+.cs-intro{padding:clamp(30px,4vw,54px);display:flex;flex-direction:column;justify-content:center;}
+.cs-intro .cs-client{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.22em;
+  font-size:0.72rem;color:var(--copper);margin-bottom:clamp(16px,2.2vw,22px);}
+.cs-intro h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5.2vw,3.8rem);color:var(--white);
+  text-transform:uppercase;line-height:0.9;margin-bottom:clamp(16px,2.2vw,22px);}
+.cs-intro h3 .accent{color:var(--copper);}
+.cs-intro p{font-size:clamp(0.95rem,1.7vw,1.05rem);color:#c5c2bc;line-height:1.6;max-width:52ch;}
+
+/* System progression */
+.cs-system{border-top:1px solid var(--border);padding:clamp(30px,4vw,52px);}
+.cs-system .css-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:clamp(24px,3.4vw,38px);}
+.cs-system .css-head .csh-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3.4vw,2.3rem);color:var(--white);text-transform:uppercase;line-height:0.9;}
+.cs-system .css-head .csh-note{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.64rem;color:var(--muted);}
+.sys-track{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,18px);}
+@media(max-width:900px){.sys-track{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.sys-track{grid-template-columns:1fr;}}
+.sys-step{border:1px solid var(--border);background:#0e0e0e;display:flex;flex-direction:column;overflow:hidden;
+  transition:border-color .45s ease,transform .45s ease;}
+.sys-step:hover{border-color:var(--copper-dark);transform:translateY(-3px);}
+.sys-shot{position:relative;aspect-ratio:4/5;background:#141414;overflow:hidden;border-bottom:1px solid var(--border);}
+.sys-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.sys-shot.contain{background:#0a0a0a;}
+.sys-shot.contain img{object-fit:contain;}
+.sys-shot .sys-n{position:absolute;top:10px;left:12px;z-index:2;font-family:'Bebas Neue',sans-serif;
+  font-size:1.3rem;color:var(--white);background:rgba(8,8,8,0.72);border:1px solid var(--copper-dark);
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;line-height:1;}
+.sys-ph{aspect-ratio:4/5;border-bottom:1px solid var(--border);background:
+    repeating-linear-gradient(-45deg,#0c0c0c 0 18px,#0e0e0e 18px 36px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;position:relative;}
+.sys-ph .sys-n{position:absolute;top:10px;left:12px;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--white);
+  background:rgba(8,8,8,0.72);border:1px solid var(--copper-dark);width:34px;height:34px;display:flex;align-items:center;justify-content:center;line-height:1;}
+.sys-ph svg{width:26px;height:26px;stroke:var(--copper);fill:none;stroke-width:1.4;opacity:0.8;}
+.sys-ph .sys-ph-tx{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.18em;font-size:0.58rem;color:var(--muted);line-height:1.5;}
+.sys-body{padding:clamp(14px,1.8vw,20px);display:flex;flex-direction:column;gap:8px;flex:1;}
+.sys-body .sys-label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.66rem;color:var(--copper);}
+.sys-body .sys-desc{font-size:0.84rem;color:#b3b0aa;line-height:1.45;}
+
+/* 30-day performance */
+.cs-perf{border-top:1px solid var(--border);padding:clamp(30px,4vw,52px);
+  background:linear-gradient(160deg,rgba(187,114,90,0.06),transparent 55%);}
+.cs-perf .perf-k{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.26em;
+  font-size:0.68rem;color:var(--copper);margin-bottom:8px;display:flex;align-items:center;gap:12px;}
+.cs-perf .perf-k::before{content:"";width:24px;height:1px;background:var(--copper);}
+.cs-perf .perf-sub{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.62rem;color:var(--muted);margin-bottom:clamp(24px,3vw,34px);}
+.perf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px);}
+@media(max-width:680px){.perf-grid{grid-template-columns:1fr;}}
+.perf-card{border:1px solid var(--border);background:#0d0d0d;padding:clamp(26px,3.4vw,38px) clamp(20px,2.6vw,28px);
+  text-align:center;position:relative;overflow:hidden;transition:border-color .45s ease;}
+.perf-card:hover{border-color:var(--copper-dark);}
+.perf-card .pc-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,8vw,5rem);color:var(--copper);line-height:0.8;letter-spacing:0.01em;}
+.perf-card .pc-label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.68rem;color:#c5c2bc;margin-top:14px;}
+.cs-perf .perf-copy{margin-top:clamp(22px,3vw,30px);font-size:clamp(0.92rem,1.7vw,1.02rem);color:#c5c2bc;line-height:1.6;max-width:70ch;}
+.cs-perf .perf-disc{margin-top:clamp(16px,2vw,20px);font-family:'Barlow',sans-serif;font-weight:300;font-style:italic;
+  font-size:0.78rem;color:var(--muted);line-height:1.5;max-width:74ch;}
+
+/* Framework recap */
+.cs-recap{border-top:1px solid var(--border);padding:clamp(30px,4vw,52px);}
+.recap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+@media(max-width:760px){.recap-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:440px){.recap-grid{grid-template-columns:1fr;}}
+.recap{background:#0d0d0d;padding:clamp(20px,2.6vw,28px);}
+.recap .r-k{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--white);text-transform:uppercase;line-height:0.9;margin-bottom:10px;}
+.recap .r-k span{color:var(--copper);}
+.recap .r-d{font-size:0.85rem;color:#b3b0aa;line-height:1.45;}
+
+/* Testimonial */
+.cs-quote{border-top:1px solid var(--border);padding:clamp(32px,4.4vw,58px) clamp(30px,4vw,52px);
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,44px);align-items:center;}
+@media(max-width:720px){.cs-quote{grid-template-columns:1fr;gap:24px;}}
+.cs-quote .q-photo{width:clamp(96px,14vw,150px);height:clamp(96px,14vw,150px);border-radius:50%;
+  border:1px solid var(--copper-dark);overflow:hidden;flex:none;}
+.cs-quote .q-photo img{width:100%;height:100%;object-fit:cover;object-position:center 32%;}
+.cs-quote .q-body .stars{color:var(--copper);letter-spacing:3px;font-size:0.9rem;margin-bottom:16px;}
+.cs-quote .q-body blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.2rem,2.6vw,1.7rem);color:var(--white);line-height:1.42;margin-bottom:20px;}
+.cs-quote .q-body .q-attr{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:0.72rem;color:#c5c2bc;}
+.cs-quote .q-body .q-attr b{color:var(--white);font-weight:600;}
+.cs-quote .q-body .q-attr .q-src{color:var(--muted);display:inline-flex;align-items:center;gap:6px;margin-left:6px;}
+.cs-quote .q-proof{margin-top:18px;display:inline-flex;align-items:center;gap:12px;border:1px solid var(--border);
+  padding:8px 8px 8px 8px;background:#0c0c0c;max-width:340px;}
+.cs-quote .q-proof img{width:100%;max-width:320px;height:auto;display:block;opacity:0.9;border:1px solid var(--border);}
+.cs-quote .q-proof-wrap{margin-top:20px;}
+.cs-quote .q-proof-cap{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.18em;font-size:0.56rem;color:var(--muted);margin-top:8px;}
+
+/* ---------- Who this is for ---------- */
+.fit{border:1px solid var(--border);background:var(--card);padding:clamp(28px,3.6vw,44px);margin-top:clamp(12px,2vw,22px);}
+.fit.yes{border-top:2px solid var(--copper);}
+.fit .fit-k{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.24em;font-size:0.72rem;color:var(--copper);margin-bottom:clamp(18px,2.4vw,26px);display:flex;align-items:center;gap:12px;}
+.fit .fit-k::before{content:"";width:24px;height:1px;background:var(--copper);}
+.fit ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,4vw,52px);}
+@media(max-width:680px){.fit ul{grid-template-columns:1fr;}}
+.fit li{font-size:0.95rem;color:#bdbab4;padding:11px 0 11px 26px;position:relative;border-top:1px solid var(--border);line-height:1.45;}
+.fit li:nth-child(1),.fit li:nth-child(2){border-top:none;}
+@media(max-width:680px){.fit li:nth-child(2){border-top:1px solid var(--border);}}
+.fit.yes li::before{content:"";position:absolute;left:0;top:16px;width:11px;height:6px;border-left:1.5px solid var(--copper);border-bottom:1.5px solid var(--copper);transform:rotate(-45deg);}
+.fit-note{margin-top:clamp(18px,2.4vw,24px);font-family:'Barlow',sans-serif;font-weight:300;
+  font-size:clamp(0.9rem,1.7vw,1rem);color:var(--muted);max-width:64ch;line-height:1.5;font-style:italic;
+  padding-left:clamp(18px,2.4vw,22px);border-left:1px solid var(--copper-dark);}
+
+/* ---------- Process ---------- */
+.proc-grid{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:clamp(12px,2vw,22px);}
+.proc{border:1px solid var(--border);background:var(--card);padding:clamp(26px,3.2vw,36px);position:relative;
+  transition:border-color .5s ease,transform .5s ease;}
+.proc:hover{border-color:var(--border-mid);transform:translateY(-3px);}
+.proc .p-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,6vw,3.4rem);color:var(--copper-dark);line-height:0.8;display:block;margin-bottom:16px;}
+.proc h3{font-size:clamp(1.4rem,2.8vw,1.8rem);color:var(--white);margin-bottom:12px;text-transform:uppercase;}
+.proc p{font-size:0.92rem;color:#c5c2bc;line-height:1.5;}
+
+/* ---------- Ecosystem ---------- */
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);background:var(--card);margin-top:clamp(12px,2vw,22px);}
+.eco{padding:clamp(28px,3.6vw,46px);position:relative;transition:background .4s ease;}
+.eco:not(:last-child){border-right:1px solid var(--border);}
+.eco .e-k{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.28em;font-size:0.62rem;color:var(--muted);margin-bottom:14px;display:block;}
+.eco h3{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--white);text-transform:uppercase;margin-bottom:10px;line-height:0.9;}
+.eco p{font-size:0.9rem;color:#bdbab4;line-height:1.5;}
+.eco .e-soon{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.56rem;color:var(--muted);margin-top:18px;display:inline-block;border:1px solid var(--border);padding:3px 9px;}
+.eco.active{background:linear-gradient(160deg,rgba(187,114,90,0.12),transparent 60%);}
+.eco.active::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--copper),var(--copper-dark));}
+.eco.active .e-k{color:var(--copper);}
+.eco.active h3{color:var(--copper);}
+.eco.active .e-here{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.56rem;color:#0a0a0a;background:var(--copper);padding:3px 9px;margin-top:18px;display:inline-block;}
+.eco-concept{margin-top:clamp(26px,3.4vw,40px);}
+.eco-concept .serif{font-size:clamp(1.2rem,2.8vw,1.7rem);line-height:1.4;max-width:52ch;}
+@media(max-width:760px){.eco-grid{grid-template-columns:1fr;}.eco:not(:last-child){border-right:none;border-bottom:1px solid var(--border);}}
+
+/* ---------- Conversion + GHL ---------- */
+.conv{background:linear-gradient(180deg,var(--black),#0c0a09 60%,var(--black));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.conv::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 0%,rgba(187,114,90,0.13),transparent 58%);pointer-events:none;}
+.conv .wrap{position:relative;z-index:2;}
+.conv-head{max-width:760px;margin:0 auto clamp(28px,4vw,44px);text-align:center;}
+.conv-head .eyebrow{justify-content:center;}
+.conv h2{font-size:clamp(2.6rem,7vw,5rem);text-transform:uppercase;color:var(--white);line-height:0.95;margin-bottom:18px;}
+.conv h2 .accent{color:var(--copper);}
+.conv-head .lead{color:#a9a6a0;font-size:clamp(0.95rem,1.7vw,1.08rem);max-width:58ch;margin:0 auto;}
+
+/* Live GHL form — native, no outer frame */
+.ghl-embed{width:100%;background:transparent;border:none;overflow:hidden;}
+.ghl-embed iframe{display:block;width:100%;border:none;overflow:hidden;min-height:900px;}
+@media(max-width:640px){.ghl-embed iframe{min-height:1050px;}}
+
+/* ---------- Footer ---------- */
+footer{padding:clamp(50px,7vw,80px) 0 clamp(40px,5vw,60px);text-align:center;position:relative;}
+footer .lockup{justify-content:center;display:inline-flex;}
+.footer-mark{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,3.8rem);color:var(--white);
+  text-transform:uppercase;letter-spacing:0.04em;margin-top:clamp(26px,4vw,40px);}
+.footer-tag{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--copper-light);
+  font-size:clamp(1.05rem,3vw,1.45rem);margin-top:10px;}
+.footer-cta{margin-top:clamp(28px,4vw,38px);}
+.footer-meta{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.3em;
+  font-size:0.64rem;color:var(--muted);margin-top:clamp(28px,4vw,40px);}
+.footer-meta a{color:var(--copper-light);text-decoration:none;}
+
+/* ---------- Sticky mobile CTA ---------- */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:800;padding:12px clamp(16px,4vw,24px);
+  background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);transform:translateY(120%);transition:transform .45s cubic-bezier(.2,.7,.2,1);display:none;}
+.sticky-cta.show{transform:translateY(0);}
+.sticky-cta .btn{width:100%;justify-content:center;}
+@media(max-width:820px){.sticky-cta{display:block;}}
+
+/* ---------- Mobile refinement (Instagram traffic) ---------- */
+@media(max-width:620px){
+  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 28px);padding-bottom:44px;}
+  .hero-title{font-size:clamp(2.9rem,15vw,4.2rem);max-width:100%;}
+  .hero-sub{font-size:1.02rem;margin-top:20px;}
+  .hero-support{margin-top:10px;}
+  .hero-cta-row{gap:14px;margin-top:26px;}
+  .hero-cta-row .btn{width:100%;justify-content:center;}
+  .hero-media{margin-top:34px;aspect-ratio:16/11;}
+  section{padding:clamp(46px,13vw,64px) 0;}
+  h2.section-title{margin-bottom:22px;}
+  .flow-node .fn-name{font-size:clamp(1.7rem,8vw,2.2rem);}
+  .flow-node .fn-desc{font-size:0.86rem;}
+  /* Case study: keep client anchor tall enough, metrics dominant */
+  .cs-photo{min-height:clamp(320px,80vw,420px);}
+  .perf-card .pc-num{font-size:clamp(3.4rem,17vw,4.6rem);}
+  .cs-quote .q-proof{max-width:100%;}
+  footer{padding-bottom:96px;}
+}
+@media(max-width:820px){
+  footer{padding-bottom:clamp(88px,14vw,104px);}
+}
+
+/* ---------- Reduced motion / print ---------- */
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+  .lockup-mark span{animation:none !important;}
+}
+@media print{
+  body{background:#fff;color:#000;}
+  .grain,.hero::after,.conv::after,header.nav,.sticky-cta{display:none;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .out,.prob,.fit,.proc,.eco,.flow-node,.ph,.embed,.cs,.sys-step,.perf-card,.recap,.cs-quote,.bridge{break-inside:avoid;}
+  section{padding:24px 0;}
+  .hero{min-height:auto;}
+  .hero-title,h2.section-title,.out h3,.conv h2,.footer-mark{color:#111;}
+  p,.lead{color:#333;}
+  .divider{opacity:1;}
+}
+</style>
+</head>
+<body>
+<svg class="grain"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="lockup" aria-label="Daily Grind Media home">
+      <div class="lockup-mark"><span></span><span></span><span></span><span></span></div>
+      <div class="lockup-name">Daily Grind Media</div>
+    </a>
+    <nav class="nav-links">
+      <a href="#how" class="nlink">How It Works</a>
+      <a href="#results" class="nlink">Results</a>
+      <a href="#about" class="nlink">About DGM</a>
+      <a href="#start" class="btn nav-cta">Build My Growth System</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow reveal">Growth &nbsp;/&nbsp; Daily Grind Media &nbsp;— San Diego</div>
+    <h1 class="hero-title reveal">Turn Attention<br><span class="row2">Into Growth.</span></h1>
+    <p class="hero-sub reveal">You're already creating attention. We build the system that turns it into leads, conversations, and real opportunities.</p>
+    <p class="hero-support reveal">Creative. Campaigns. Funnels. CRM. Follow-up. One connected growth system.</p>
+    <div class="hero-cta-row reveal">
+      <a href="#start" class="btn">Build My Growth System <span class="arw">→</span></a>
+      <a href="#system" class="btn-text">See How It Works ↓</a>
+    </div>
+    <div class="hero-meta reveal">
+      <span>Creative Growth Agency</span>
+      <span>Attention → Opportunity</span>
+      <span>One Connected System</span>
+    </div>
+    <div class="hero-media reveal">
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <span class="media-tag">[ Hero Brand Video Placeholder — DGM Marketing Shoot ]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">01</span> The Real Problem</div>
+    <h2 class="section-title reveal">More Marketing Doesn't<br>Automatically Mean More Business.</h2>
+    <p class="lead reveal">Most businesses aren't short on activity. They're short on connection. The pieces exist — they just don't talk to each other.</p>
+
+    <div class="prob-grid reveal">
+      <div class="prob">
+        <div class="pk">Content</div>
+        <p>You create content — but there's <b>nowhere intentional</b> to send the attention it earns.</p>
+      </div>
+      <div class="prob">
+        <div class="pk">Ads</div>
+        <p>You run ads — but leads <b>aren't followed up with</b> effectively once they come in.</p>
+      </div>
+      <div class="prob">
+        <div class="pk">Website</div>
+        <p>Your website gets traffic — but visitors <b>land and leave</b> without converting.</p>
+      </div>
+      <div class="prob">
+        <div class="pk">Inquiries</div>
+        <p>You generate inquiries — but opportunities <b>fall through the cracks.</b></p>
+      </div>
+      <div class="prob">
+        <div class="pk">The Surface</div>
+        <p>Your marketing <b>looks active</b> — but underneath, nothing is actually connected.</p>
+      </div>
+      <div class="prob">
+        <div class="pk">The Cost</div>
+        <p>Every disconnected step is <b>attention you paid for</b> and never turned into revenue.</p>
+      </div>
+    </div>
+
+    <div class="prob-land reveal statement" style="border-left:2px solid var(--copper);padding:clamp(24px,4vw,44px) clamp(24px,4vw,52px);background:linear-gradient(100deg,rgba(187,114,90,0.06),transparent 60%);">
+      <p class="serif" style="font-size:clamp(1.4rem,3.6vw,2.2rem);color:var(--white);line-height:1.32;">The problem isn't always getting attention. It's <span style="color:var(--copper-light)">what happens after</span> you get it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE GROWTH SYSTEM ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="system">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">02</span> The DGM Growth System</div>
+    <h2 class="section-title reveal">One System. Not A<br>Collection Of Disconnected Tactics.</h2>
+    <p class="lead reveal">Attention on its own is just noise. We build the path that carries it all the way to growth — and connect every stage so nothing leaks out along the way.</p>
+
+    <div class="flow reveal">
+      <div class="flow-node">
+        <div class="fn-l"><span class="fn-num">01</span><span class="fn-name">Attention</span></div>
+        <span class="fn-desc">The right people notice you.</span>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="fn-l"><span class="fn-num">02</span><span class="fn-name">Trust</span></div>
+        <span class="fn-desc">They believe you can deliver.</span>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="fn-l"><span class="fn-num">03</span><span class="fn-name">Conversion</span></div>
+        <span class="fn-desc">Interest becomes an action.</span>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="fn-l"><span class="fn-num">04</span><span class="fn-name">Follow-Up</span></div>
+        <span class="fn-desc">No lead is left behind.</span>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="fn-l"><span class="fn-num">05</span><span class="fn-name">Opportunity</span></div>
+        <span class="fn-desc">A real conversation begins.</span>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node final">
+        <div class="fn-l"><span class="fn-num">06</span><span class="fn-name">Growth</span></div>
+        <span class="fn-desc">The system compounds.</span>
+      </div>
+    </div>
+
+    <div class="flow-caption reveal">
+      <p class="serif">We don't treat positioning, creative, campaigns, landing pages, CRM, and automation as isolated services. We connect them into one machine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT DGM BUILDS ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="build">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">03</span> What We Build</div>
+    <h2 class="section-title reveal">Four Outcomes.<br>One Connected Engine.</h2>
+    <p class="lead reveal">Every capability we deploy serves one of four jobs. Not a service menu — a system with a purpose at each stage.</p>
+
+    <div class="out-grid">
+      <div class="out reveal">
+        <span class="o-n">01</span>
+        <h3>Attract</h3>
+        <p class="o-sub">Create attention from the right audience — not just more of it.</p>
+        <ul class="tick-list">
+          <li>Creative strategy</li>
+          <li>Content production</li>
+          <li>Paid campaigns</li>
+          <li>Campaign creative</li>
+          <li>Audience strategy</li>
+        </ul>
+      </div>
+      <div class="out reveal">
+        <span class="o-n">02</span>
+        <h3>Convert</h3>
+        <p class="o-sub">Give that attention somewhere intentional to go.</p>
+        <ul class="tick-list">
+          <li>Offer positioning</li>
+          <li>Landing pages</li>
+          <li>Web experiences</li>
+          <li>Lead capture</li>
+          <li>Conversion strategy</li>
+        </ul>
+      </div>
+      <div class="out reveal">
+        <span class="o-n">03</span>
+        <h3>Nurture</h3>
+        <p class="o-sub">Stop opportunities from disappearing after first contact.</p>
+        <ul class="tick-list">
+          <li>GoHighLevel CRM</li>
+          <li>Email automation</li>
+          <li>SMS automation</li>
+          <li>Booking workflows</li>
+          <li>Follow-up systems</li>
+        </ul>
+      </div>
+      <div class="out reveal">
+        <span class="o-n">04</span>
+        <h3>Optimize</h3>
+        <p class="o-sub">Improve the system based on real-world performance.</p>
+        <ul class="tick-list">
+          <li>Reporting</li>
+          <li>Campaign optimization</li>
+          <li>Funnel optimization</li>
+          <li>Creative testing</li>
+          <li>Conversion analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bridge reveal">
+      <p>We don't force every business into the same package. <strong>We identify where opportunity is leaking, then build the pieces needed to close the gaps.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY THE SYSTEM MATTERS ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">04</span> Why The System Matters</div>
+    <h2 class="section-title reveal">Disconnected Activity<br>vs. One System.</h2>
+
+    <div class="disc-label reveal">Disconnected Activity</div>
+    <div class="disc-grid reveal">
+      <div class="disc">
+        <div class="d-from">Content</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+      <div class="disc">
+        <div class="d-from">Ads</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+      <div class="disc">
+        <div class="d-from">Leads</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+      <div class="disc">
+        <div class="d-from">Website</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+      <div class="disc">
+        <div class="d-from">Social</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+      <div class="disc">
+        <div class="d-from">CRM</div>
+        <div class="d-x"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Disconnected</div>
+      </div>
+    </div>
+
+    <div class="contrast reveal">
+      <div class="c-txt"><p class="serif">Same effort. Same spend. The difference is whether it all connects.</p></div>
+      <div class="c-big">One Connected<br>Growth System.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="results">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">05</span> Proof</div>
+    <h2 class="section-title reveal">The System Isn't Theory.<br>Here's What It Can Produce.</h2>
+    <p class="lead reveal">Real strategy. Real infrastructure. Real performance. Here's how Daily Grind Media helped turn expertise into a functioning client acquisition system.</p>
+
+    <!-- ===== FEATURED CASE STUDY ===== -->
+    <div class="cs reveal">
+      <!-- Client anchor -->
+      <div class="cs-top">
+        <div class="cs-photo">
+          <img src="assets/cody-portrait.jpg" alt="Cody Jensen, owner of The Fitness Code, in studio">
+          <div class="cs-badge">
+            <div class="cb-name">The Fitness Code</div>
+            <div class="cb-meta">Cody Jensen · San Diego, CA</div>
+          </div>
+        </div>
+        <div class="cs-intro">
+          <div class="sub-eyebrow">Featured Growth System</div>
+          <div class="cs-client">The Fitness Code — Cody Jensen</div>
+          <h3>From Expertise<br>To <span class="accent">Acquisition.</span></h3>
+          <p>Cody Jensen already had the expertise and an established fitness business. The opportunity was creating a more consistent marketing system around it. Daily Grind Media helped package that expertise into a professional lead magnet and built the campaign infrastructure designed to attract, capture, and nurture new opportunities.</p>
+        </div>
+      </div>
+
+      <!-- System progression -->
+      <div class="cs-system">
+        <div class="css-head">
+          <div class="csh-title">The System We Built</div>
+          <div class="csh-note">Offer → Campaign → Landing Page → Nurture</div>
+        </div>
+        <div class="sys-track">
+          <div class="sys-step">
+            <div class="sys-shot"><span class="sys-n">01</span><img src="assets/tfc-ebook-cover.jpg" alt="The Fitness Code to Longevity Training lead magnet cover"></div>
+            <div class="sys-body">
+              <div class="sys-label">The Offer</div>
+              <div class="sys-desc">Turning Cody's expertise into a polished educational asset designed to create value before the sale.</div>
+            </div>
+          </div>
+          <div class="sys-step">
+            <div class="sys-shot contain"><span class="sys-n">02</span><img src="assets/tfc-guide-interior.jpg" alt="The Fitness Code longevity guide interior page"></div>
+            <div class="sys-body">
+              <div class="sys-label">The Campaign</div>
+              <div class="sys-desc">Creative designed to put the offer in front of the right audience and drive traffic into the system.</div>
+            </div>
+          </div>
+          <div class="sys-step">
+            <div class="sys-shot"><span class="sys-n">03</span><img src="assets/tfc-landing-page.jpg" alt="The Fitness Code landing page — Meet the Coach section"></div>
+            <div class="sys-body">
+              <div class="sys-label">The Conversion Experience</div>
+              <div class="sys-desc">A focused landing experience built to turn campaign traffic into captured leads.</div>
+            </div>
+          </div>
+          <div class="sys-step">
+            <div class="sys-ph"><span class="sys-n">04</span>
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+              <div class="sys-ph-tx">Nurture Email<br>[ ASSET PLACEHOLDER ]</div>
+            </div>
+            <div class="sys-body">
+              <div class="sys-label">The Nurture</div>
+              <div class="sys-desc">Automated follow-up designed to continue the conversation after the initial opt-in.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- First 30 days performance -->
+      <div class="cs-perf">
+        <div class="perf-k">The Result — The Fitness Code</div>
+        <div class="perf-sub">First 30 Days · Initial Reporting Period</div>
+        <div class="perf-grid">
+          <div class="perf-card">
+            <div class="pc-num">74</div>
+            <div class="pc-label">Leads Generated</div>
+          </div>
+          <div class="perf-card">
+            <div class="pc-num">$6.79</div>
+            <div class="pc-label">Cost Per Lead</div>
+          </div>
+          <div class="perf-card">
+            <div class="pc-num">34.74%</div>
+            <div class="pc-label">Landing Page Conversion</div>
+          </div>
+        </div>
+        <p class="perf-copy">The first 30 days validated the campaign's ability to generate demand efficiently and convert traffic into captured leads, while creating the data needed to identify the next opportunity for optimization.</p>
+        <p class="perf-disc">Results shown reflect this client's first 30 days of campaign performance. Individual results vary based on offer, market, audience, budget, and execution.</p>
+      </div>
+
+      <!-- Framework recap -->
+      <div class="cs-recap">
+        <div class="sub-eyebrow">Connected To The Growth System</div>
+        <div class="recap-grid">
+          <div class="recap"><div class="r-k"><span>Attract</span></div><div class="r-d">Campaign generated demand.</div></div>
+          <div class="recap"><div class="r-k"><span>Convert</span></div><div class="r-d">Landing page converted 34.74% of visitors into leads.</div></div>
+          <div class="recap"><div class="r-k"><span>Nurture</span></div><div class="r-d">Automated email follow-up continued the conversation.</div></div>
+          <div class="recap"><div class="r-k"><span>Optimize</span></div><div class="r-d">Campaign data identified the next constraint and created a roadmap for continued improvement.</div></div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="cs-quote">
+        <div class="q-photo"><img src="assets/cody-review-photo.jpg" alt="Cody Jensen"></div>
+        <div class="q-body">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"He took my e-book and transformed it into a polished, professional product that I'm genuinely proud to put my name on. He's also created ad content that not only looks great, but has been very effective at getting my business in front of the right people."</blockquote>
+          <div class="q-attr"><b>Cody Jensen</b> — Owner, The Fitness Code <span class="q-src">· Google Review</span></div>
+          <div class="q-proof-wrap">
+            <div class="q-proof"><img src="assets/cody-google-review.jpg" alt="Cody Jensen's Google review of Daily Grind Media"></div>
+            <div class="q-proof-cap">Actual Google review — The Fitness Code</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHO THIS IS FOR ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="fit">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">06</span> Who This Is For</div>
+    <h2 class="section-title reveal">Built For Businesses<br>Ready To Grow.</h2>
+    <p class="lead reveal">The Growth System is a partnership, not a quick tactic. It fits some businesses exceptionally well.</p>
+
+    <div class="fit yes reveal">
+      <span class="fit-k">This Works Best When…</span>
+      <ul>
+        <li>You have a legitimate product or service</li>
+        <li>You're ready to grow and understand growth takes investment</li>
+        <li>You've outgrown random, one-off marketing tactics</li>
+        <li>You want your creative and acquisition infrastructure connected</li>
+        <li>You want a strategic partner, not another disconnected vendor</li>
+        <li>You need a better system for generating and converting opportunities</li>
+      </ul>
+    </div>
+    <p class="fit-note reveal">If you're looking for the cheapest one-off tactic or a disconnected marketing vendor, we're probably not the right fit.</p>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">07</span> How Working With DGM Works</div>
+    <h2 class="section-title reveal">A Clear Path<br>From Day One.</h2>
+    <p class="lead reveal">No mystery, no bloat. Four steps from understanding your business to a system that keeps improving.</p>
+
+    <div class="proc-grid">
+      <div class="proc reveal">
+        <span class="p-n">01</span>
+        <h3>Discover</h3>
+        <p>We understand the business, your customer, your offer, your current marketing, and where opportunities are being lost.</p>
+      </div>
+      <div class="proc reveal">
+        <span class="p-n">02</span>
+        <h3>Build</h3>
+        <p>We develop the creative and conversion infrastructure needed to actually support growth.</p>
+      </div>
+      <div class="proc reveal">
+        <span class="p-n">03</span>
+        <h3>Launch</h3>
+        <p>We deploy campaigns, funnels, content, lead capture, CRM, and nurture systems as appropriate.</p>
+      </div>
+      <div class="proc reveal">
+        <span class="p-n">04</span>
+        <h3>Optimize</h3>
+        <p>We use performance data and real-world feedback to continuously sharpen the system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECOSYSTEM ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">08</span> The DGM Ecosystem</div>
+    <h2 class="section-title reveal">Growth Is One<br>Of Three.</h2>
+    <p class="lead reveal">Growth is where attention becomes opportunity. It works best alongside the two pillars that feed it.</p>
+
+    <div class="eco-grid reveal">
+      <div class="eco">
+        <span class="e-k">Pillar 01</span>
+        <h3>Creative</h3>
+        <p>Make your brand impossible to ignore. Earn attention.</p>
+        <span class="e-soon">Landing Page Coming Soon</span>
+      </div>
+      <div class="eco">
+        <span class="e-k">Pillar 02</span>
+        <h3>Authority</h3>
+        <p>Turn expertise into trust and market position. Give people a reason to believe.</p>
+        <span class="e-soon">Landing Page Coming Soon</span>
+      </div>
+      <div class="eco active">
+        <span class="e-k">Pillar 03 — You Are Here</span>
+        <h3>Growth</h3>
+        <p>Turn attention into opportunity. Give visibility somewhere to go.</p>
+        <span class="e-here">This Page</span>
+      </div>
+    </div>
+
+    <div class="eco-concept reveal">
+      <p class="serif">Creative gets you noticed. Authority gives people a reason to trust you. Growth gives that attention somewhere to go.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONVERSION — GROWTH FORM ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section class="conv" id="start">
+  <div class="wrap">
+    <div class="conv-head">
+      <div class="eyebrow reveal"><span class="sec-num">09</span> Growth Starts Here</div>
+      <h2 class="reveal">Tell Us Where<br><span class="accent">You Want To Grow.</span></h2>
+      <p class="lead reveal">Give us a snapshot of where your business is today, where you're trying to go, and what's getting in the way. We'll review it and determine the right next step.</p>
+    </div>
+
+    <!-- LIVE GHL GROWTH FORM -->
+    <a id="form"></a>
+    <div class="ghl-embed reveal">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/qFo37SxraQLTq49jg2Od"
+        style="width:100%;border:none;overflow:hidden;"
+        id="growth-form-embed"
+        title="Growth Inquiry Form">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<footer>
+  <div class="wrap">
+    <div class="lockup reveal">
+      <div class="lockup-mark"><span></span><span></span><span></span><span></span></div>
+      <div class="lockup-name">Daily Grind Media</div>
+    </div>
+    <div class="footer-mark reveal">Turn Attention Into Growth.</div>
+    <div class="footer-tag reveal">Stay on that daily grind.</div>
+    <div class="footer-cta reveal"><a href="#start" class="btn">Build My Growth System <span class="arw">→</span></a></div>
+    <div class="footer-meta reveal">Daily Grind Media &nbsp;·&nbsp; San Diego, California &nbsp;·&nbsp; <a href="mailto:team@dailygrindmediapro.com">team@dailygrindmediapro.com</a></div>
+  </div>
+</footer>
+
+<!-- ================= STICKY MOBILE CTA ================= -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#start" class="btn">Build My Growth System <span class="arw">→</span></a>
+</div>
+
+<script>
+(function(){
+  /* reveal on scroll */
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
+  else{
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+
+  /* nav border + sticky CTA on scroll */
+  var nav=document.getElementById('nav');
+  var sticky=document.getElementById('stickyCta');
+  var formInView=false;
+  var formSection=document.getElementById('start');
+  if(formSection && 'IntersectionObserver' in window){
+    var fio=new IntersectionObserver(function(en){
+      en.forEach(function(e){formInView=e.isIntersecting;});
+      if(formInView){sticky.classList.remove('show');}
+    },{threshold:0.01});
+    fio.observe(formSection);
+  }
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    if(y>40){nav.classList.add('scrolled');}else{nav.classList.remove('scrolled');}
+    if(y>window.innerHeight*0.9 && !formInView){sticky.classList.add('show');}else{sticky.classList.remove('show');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+<!-- GoHighLevel form embed script (loaded once, after the iframe exists) -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+</body>
+</html>
