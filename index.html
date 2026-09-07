@@ -258,6 +258,7 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;w
 .sys-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
 .sys-shot.contain{background:#0a0a0a;}
 .sys-shot.contain img{object-fit:contain;}
+.sys-shot.contain.top img{object-position:top center;}
 .sys-shot .sys-n{position:absolute;top:10px;left:12px;z-index:2;font-family:'Bebas Neue',sans-serif;
   font-size:1.3rem;color:var(--white);background:rgba(8,8,8,0.72);border:1px solid var(--copper-dark);
   width:34px;height:34px;display:flex;align-items:center;justify-content:center;line-height:1;}
@@ -271,7 +272,8 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;w
 .cs-perf .perf-k{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.26em;
   font-size:0.68rem;color:var(--copper);margin-bottom:8px;display:flex;align-items:center;gap:12px;}
 .cs-perf .perf-k::before{content:"";width:24px;height:1px;background:var(--copper);}
-.cs-perf .perf-sub{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.62rem;color:var(--muted);margin-bottom:clamp(24px,3vw,34px);}
+.cs-perf .perf-period{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4.2vw,2.8rem);
+  color:var(--white);text-transform:uppercase;line-height:0.9;letter-spacing:0.02em;margin-bottom:clamp(22px,3vw,32px);}
 .perf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,20px);}
 @media(max-width:680px){.perf-grid{grid-template-columns:1fr;}}
 .perf-card{border:1px solid var(--border);background:#0d0d0d;padding:clamp(26px,3.4vw,38px) clamp(20px,2.6vw,28px);
@@ -282,16 +284,6 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;w
 .cs-perf .perf-copy{margin-top:clamp(22px,3vw,30px);font-size:clamp(0.92rem,1.7vw,1.02rem);color:#c5c2bc;line-height:1.6;max-width:70ch;}
 .cs-perf .perf-disc{margin-top:clamp(16px,2vw,20px);font-family:'Barlow',sans-serif;font-weight:300;font-style:italic;
   font-size:0.78rem;color:var(--muted);line-height:1.5;max-width:74ch;}
-
-/* Framework recap */
-.cs-recap{border-top:1px solid var(--border);padding:clamp(30px,4vw,52px);}
-.recap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-@media(max-width:760px){.recap-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:440px){.recap-grid{grid-template-columns:1fr;}}
-.recap{background:#0d0d0d;padding:clamp(20px,2.6vw,28px);}
-.recap .r-k{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);color:var(--white);text-transform:uppercase;line-height:0.9;margin-bottom:10px;}
-.recap .r-k span{color:var(--copper);}
-.recap .r-d{font-size:0.85rem;color:#b3b0aa;line-height:1.45;}
 
 /* Testimonial */
 .cs-quote{border-top:1px solid var(--border);padding:clamp(32px,4.4vw,58px) clamp(30px,4vw,52px);
@@ -306,11 +298,6 @@ header.nav .wrap{display:flex;align-items:center;justify-content:space-between;w
 .cs-quote .q-body .q-attr{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.16em;font-size:0.72rem;color:#c5c2bc;}
 .cs-quote .q-body .q-attr b{color:var(--white);font-weight:600;}
 .cs-quote .q-body .q-attr .q-src{color:var(--muted);display:inline-flex;align-items:center;gap:6px;margin-left:6px;}
-.cs-quote .q-proof{margin-top:18px;display:inline-flex;align-items:center;gap:12px;border:1px solid var(--border);
-  padding:8px 8px 8px 8px;background:#0c0c0c;max-width:340px;}
-.cs-quote .q-proof img{width:100%;max-width:320px;height:auto;display:block;opacity:0.9;border:1px solid var(--border);}
-.cs-quote .q-proof-wrap{margin-top:20px;}
-.cs-quote .q-proof-cap{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:0.18em;font-size:0.56rem;color:var(--muted);margin-top:8px;}
 
 /* ---------- Who this is for ---------- */
 .fit{border:1px solid var(--border);background:var(--card);padding:clamp(28px,3.6vw,44px);margin-top:clamp(12px,2vw,22px);}
@@ -405,7 +392,6 @@ footer .lockup{justify-content:center;display:inline-flex;}
   /* Case study: keep client anchor tall enough, metrics dominant */
   .cs-photo{min-height:clamp(320px,80vw,420px);}
   .perf-card .pc-num{font-size:clamp(3.4rem,17vw,4.6rem);}
-  .cs-quote .q-proof{max-width:100%;}
   footer{padding-bottom:96px;}
 }
 @media(max-width:820px){
@@ -422,7 +408,7 @@ footer .lockup{justify-content:center;display:inline-flex;}
   body{background:#fff;color:#000;}
   .grain,.hero::after,.conv::after,header.nav,.sticky-cta{display:none;}
   .reveal{opacity:1!important;transform:none!important;}
-  .out,.prob,.fit,.proc,.eco,.flow-node,.ph,.embed,.cs,.sys-step,.perf-card,.recap,.cs-quote,.bridge{break-inside:avoid;}
+  .out,.prob,.fit,.proc,.eco,.flow-node,.ph,.embed,.cs,.sys-step,.perf-card,.cs-quote,.bridge{break-inside:avoid;}
   section{padding:24px 0;}
   .hero{min-height:auto;}
   .hero-title,h2.section-title,.out h3,.conv h2,.footer-mark{color:#111;}
@@ -673,8 +659,8 @@ footer .lockup{justify-content:center;display:inline-flex;}
 <section id="results">
   <div class="wrap">
     <div class="eyebrow reveal"><span class="sec-num">05</span> Proof</div>
-    <h2 class="section-title reveal">The System Isn't Theory.<br>Here's What It Can Produce.</h2>
-    <p class="lead reveal">Real strategy. Real infrastructure. Real performance. Here's how Daily Grind Media helped turn expertise into a functioning client acquisition system.</p>
+    <h2 class="section-title reveal">From Strategy To<br>A Working Growth System.</h2>
+    <p class="lead reveal">See how we connected an offer, campaign, conversion experience, and follow-up infrastructure into one system — and what happened in the first 30 days.</p>
 
     <!-- ===== FEATURED CASE STUDY ===== -->
     <div class="cs reveal">
@@ -699,7 +685,7 @@ footer .lockup{justify-content:center;display:inline-flex;}
       <div class="cs-system">
         <div class="css-head">
           <div class="csh-title">The System We Built</div>
-          <div class="csh-note">Offer → Campaign → Landing Page → Nurture</div>
+          <div class="csh-note">Offer → Traffic → Conversion → Nurture</div>
         </div>
         <div class="sys-track">
           <div class="sys-step">
@@ -710,14 +696,14 @@ footer .lockup{justify-content:center;display:inline-flex;}
             </div>
           </div>
           <div class="sys-step">
-            <div class="sys-shot contain"><span class="sys-n">02</span><img src="assets/tfc-guide-interior.jpg" alt="The Fitness Code longevity guide interior page"></div>
+            <div class="sys-shot contain"><span class="sys-n">02</span><img src="assets/tfc-campaign-creative.jpg" alt="The Fitness Code campaign ad creative — Longevity Guide free ebook offer"></div>
             <div class="sys-body">
               <div class="sys-label">The Campaign</div>
-              <div class="sys-desc">Creative designed to put the offer in front of the right audience and drive traffic into the system.</div>
+              <div class="sys-desc">Campaign creative designed to put the offer in front of the right audience and drive traffic into the system.</div>
             </div>
           </div>
           <div class="sys-step">
-            <div class="sys-shot"><span class="sys-n">03</span><img src="assets/tfc-landing-page.jpg" alt="The Fitness Code landing page — Meet the Coach section"></div>
+            <div class="sys-shot contain top"><span class="sys-n">03</span><img src="assets/tfc-landing-conversion.jpg" alt="The Fitness Code landing page — headline, free ebook offer, benefits, and lead capture"></div>
             <div class="sys-body">
               <div class="sys-label">The Conversion Experience</div>
               <div class="sys-desc">A focused landing experience built to turn campaign traffic into captured leads.</div>
@@ -736,7 +722,7 @@ footer .lockup{justify-content:center;display:inline-flex;}
       <!-- First 30 days performance -->
       <div class="cs-perf">
         <div class="perf-k">The Result — The Fitness Code</div>
-        <div class="perf-sub">First 30 Days · Initial Reporting Period</div>
+        <div class="perf-period">First 30 Days</div>
         <div class="perf-grid">
           <div class="perf-card">
             <div class="pc-num">74</div>
@@ -751,19 +737,8 @@ footer .lockup{justify-content:center;display:inline-flex;}
             <div class="pc-label">Landing Page Conversion</div>
           </div>
         </div>
-        <p class="perf-copy">The first 30 days validated the campaign's ability to generate demand efficiently and convert traffic into captured leads, while creating the data needed to identify the next opportunity for optimization.</p>
+        <p class="perf-copy">The first 30 days validated the front end of the system: generating demand efficiently and converting that attention into captured opportunities.</p>
         <p class="perf-disc">Results shown reflect this client's first 30 days of campaign performance. Individual results vary based on offer, market, audience, budget, and execution.</p>
-      </div>
-
-      <!-- Framework recap -->
-      <div class="cs-recap">
-        <div class="sub-eyebrow">Connected To The Growth System</div>
-        <div class="recap-grid">
-          <div class="recap"><div class="r-k"><span>Attract</span></div><div class="r-d">Campaign generated demand.</div></div>
-          <div class="recap"><div class="r-k"><span>Convert</span></div><div class="r-d">Landing page converted 34.74% of visitors into leads.</div></div>
-          <div class="recap"><div class="r-k"><span>Nurture</span></div><div class="r-d">Automated email follow-up continued the conversation.</div></div>
-          <div class="recap"><div class="r-k"><span>Optimize</span></div><div class="r-d">Campaign data identified the next constraint and created a roadmap for continued improvement.</div></div>
-        </div>
       </div>
 
       <!-- Testimonial -->
@@ -773,10 +748,6 @@ footer .lockup{justify-content:center;display:inline-flex;}
           <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
           <blockquote>"He took my e-book and transformed it into a polished, professional product that I'm genuinely proud to put my name on. He's also created ad content that not only looks great, but has been very effective at getting my business in front of the right people."</blockquote>
           <div class="q-attr"><b>Cody Jensen</b> — Owner, The Fitness Code <span class="q-src">· Google Review</span></div>
-          <div class="q-proof-wrap">
-            <div class="q-proof"><img src="assets/cody-google-review.jpg" alt="Cody Jensen's Google review of Daily Grind Media"></div>
-            <div class="q-proof-cap">Actual Google review — The Fitness Code</div>
-          </div>
         </div>
       </div>
     </div>
